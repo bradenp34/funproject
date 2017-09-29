@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls import include, url
+import forms_builder.forms.urls
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
@@ -11,6 +12,7 @@ urlpatterns = [
 
     # Django Admin, use {% url 'admin:index' %}
     url(settings.ADMIN_URL, admin.site.urls),
+    url(r'^forms/', include(forms_builder.forms.urls)),
 
     # User management
     url(r'^users/', include('funproject.users.urls', namespace='users')),
